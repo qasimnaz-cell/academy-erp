@@ -21,8 +21,7 @@ def render():
     with tab_list:
         students = get_students()
         if students.empty:
-            st.info("No students yet. Use the 'Add Student' tab to get started.")
-            return
+            st.info("No students yet. Use the ➕ Add Student tab to enroll your first student.")
 
         # Filters
         col1, col2, col3 = st.columns([2, 1, 1])
