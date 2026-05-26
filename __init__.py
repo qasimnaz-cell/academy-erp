@@ -1,0 +1,1 @@
+# AcademyERP modules package
