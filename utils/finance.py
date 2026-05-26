@@ -95,10 +95,10 @@ SplitType = Literal["equal", "percentage", "custom"]
 
 def calculate_split(
     total: float,
-    participants: list[str],
+    participants: list,
     split_type: SplitType,
-    shares: list[float] | None = None,
-) -> dict[str, float]:
+    shares: list = None,
+) -> dict:
     """
     Returns dict mapping participant → amount owed.
     - equal: each pays total / n
@@ -130,13 +130,13 @@ def calculate_split(
     raise ValueError(f"Unknown split type: {split_type}")
 
 
-def net_balances(splits_df: pd.DataFrame) -> dict[str, float]:
+def net_balances(splits_df: pd.DataFrame) -> dict:
     """
     Calculate running net balance for each participant across all unsettled splits.
     Positive = owed money. Negative = owes money.
     """
     import json
-    balances: dict[str, float] = {}
+    balances: dict = {}
 
     for _, row in splits_df.iterrows():
         if row.get("Status") == "settled":
