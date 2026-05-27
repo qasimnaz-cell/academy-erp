@@ -11,7 +11,7 @@ def _get(key, default=""):
 
 APP_TITLE    = "AcademyERP"
 LOGO_ICON    = "🏦"
-APP_VERSION  = "1.0.0"
+APP_VERSION  = "2.0.0"
 
 GOOGLE_CLIENT_ID     = _get("GOOGLE_CLIENT_ID")
 GOOGLE_CLIENT_SECRET = _get("GOOGLE_CLIENT_SECRET")
@@ -22,19 +22,23 @@ APPS_SCRIPT_URL      = _get("APPS_SCRIPT_URL")
 DRIVE_RECEIPTS_FOLDER= _get("DRIVE_RECEIPTS_FOLDER")
 
 SHEETS = {
-    "students": "Students", "payments": "Payments",
-    "expenses": "Expenses", "revenue": "Revenue",
-    "splits": "SplitExpenses", "settlements": "Settlements", "logs": "AuditLogs",
+    "students":    "Students",
+    "payments":    "Payments",
+    "expenses":    "Expenses",
+    "revenue":     "Revenue",
+    "groups":      "Groups",
+    "splits":      "SplitExpenses",
+    "settlements": "Settlements",
+    "logs":        "AuditLogs",
 }
 
-CURRENCY      = "₨"
-CURRENCY_CODE = "PKR"
-EXPENSE_CATEGORIES = ["Salaries","Rent","Utilities","Marketing","Equipment","Travel","Events","Software","Miscellaneous"]
-REVENUE_STREAMS    = ["Student Fees","Workshops","Sponsorships","Course Sales","Merchandise","Other"]
+CURRENCY = "Rs."
+EXPENSE_CATEGORIES = ["Salaries","Rent","Utilities","Marketing","Equipment","Travel","Events","Software","Food","Miscellaneous"]
+REVENUE_STREAMS = ["Student Fees","Workshops","Sponsorships","Course Sales","Merchandise","Other"]
 COURSES = ["Python Full Stack","UI/UX Design","Data Science","Digital Marketing","Mobile Development","Cloud Engineering"]
 ROLES = {
     "admin":   ["*"],
-    "finance": ["dashboard","students","expenses","revenue","reports","pnl","analytics"],
-    "staff":   ["dashboard","students","expenses"],
+    "finance": ["dashboard","students","expenses","revenue","reports","pnl","analytics","split"],
+    "staff":   ["dashboard","students","expenses","split"],
     "viewer":  ["dashboard","analytics"],
 }
