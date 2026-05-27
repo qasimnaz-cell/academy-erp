@@ -1,11 +1,8 @@
-"""
-AcademyERP — Finance & Office Management Platform
-Entry point: Streamlit multi-page app with sidebar navigation.
-"""
 import streamlit as st
-from modules.auth import require_auth
 from modules.config import APP_TITLE, LOGO_ICON
 from modules.theme import apply_theme
+from modules.auth import require_auth
+from modules.navigation import render_sidebar
 
 st.set_page_config(
     page_title=APP_TITLE,
@@ -16,12 +13,8 @@ st.set_page_config(
 
 apply_theme()
 require_auth()
-
-# ─── Sidebar Navigation ────────────────────────────────────────────────────
-from modules.navigation import render_sidebar
 page = render_sidebar()
 
-# ─── Page Router ───────────────────────────────────────────────────────────
 if page == "dashboard":
     from pages.dashboard import render
 elif page == "students":
