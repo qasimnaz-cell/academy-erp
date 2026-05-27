@@ -1,3 +1,6 @@
+import os
+
+content = r'''
 import json
 import streamlit as st
 import pandas as pd
@@ -273,3 +276,7 @@ def render():
             st.dataframe(settlements, use_container_width=True, hide_index=True)
         else:
             st.info("No settlements recorded yet.")
+'''
+
+open("pages/split_expenses.py", "w").write(content.strip())
+print("split_expenses.py written! Lines:", len(content.strip().split("\n")))
